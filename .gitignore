@@ -4,3 +4,4 @@ __pycache__/
 .env
 .vscode/
 .DS_Store
+nse_options_2024-11-03_normalized.csv
