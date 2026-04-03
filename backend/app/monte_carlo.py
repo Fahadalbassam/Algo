@@ -20,7 +20,6 @@
 #     payoffs = np.maximum(terminal_prices - K, 0.0)
 #     discounted_price = np.exp(-r * T) * np.mean(payoffs)
 #     return float(discounted_price)
-import time
 import numpy as np
 
 
@@ -54,7 +53,7 @@ def monte_carlo_call(
     sigma: float,
     N: int,
     seed: int | None = None,
-) -> dict:
+) -> float:
     if S <= 0:
         raise ValueError("S must be greater than 0")
     if K <= 0:
@@ -66,9 +65,7 @@ def monte_carlo_call(
     if N <= 0:
         raise ValueError("N must be greater than 0")
 
-    start_time = time.perf_counter()
-
-    price = monte_carlo_price(
+    return monte_carlo_price(
         S=S,
         K=K,
         T=T,
@@ -77,24 +74,6 @@ def monte_carlo_call(
         N=N,
         seed=seed,
     )
-
-    runtime_ms = (time.perf_counter() - start_time) * 1000
-
-    return {
-        "method": "monte_carlo",
-        "price": price,
-        "display_price": round(price, 2),
-        "runtime_ms": round(runtime_ms, 2),
-        "inputs": {
-            "S": S,
-            "K": K,
-            "T": T,
-            "r": r,
-            "sigma": sigma,
-            "N": N,
-            "seed": seed,
-        },
-    }
 
 
 if __name__ == "__main__":

@@ -50,6 +50,7 @@
 #         print(row)
 import csv
 from pathlib import Path
+from time import perf_counter
 
 try:
     from app.black_scholes import black_scholes_call
@@ -86,7 +87,8 @@ def run_benchmark_cases() -> list[dict]:
                 case["sigma"],
             )
 
-            mc_result = monte_carlo_call(
+            mc_start = perf_counter()
+            mc_price = monte_carlo_call(
                 case["S"],
                 case["K"],
                 case["T"],
@@ -95,8 +97,7 @@ def run_benchmark_cases() -> list[dict]:
                 case["N"],
                 seed=42,
             )
-
-            mc_price = mc_result["price"]
+            mc_runtime_ms = (perf_counter() - mc_start) * 1000
 
             absolute_error = abs(bs_price - mc_price)
             relative_error = absolute_error / bs_price if bs_price != 0 else 0.0
@@ -112,7 +113,7 @@ def run_benchmark_cases() -> list[dict]:
                     "N": case["N"],
                     "black_scholes_price": bs_price,
                     "monte_carlo_price": mc_price,
-                    "monte_carlo_runtime_ms": mc_result["runtime_ms"],
+                    "monte_carlo_runtime_ms": round(mc_runtime_ms, 4),
                     "absolute_error": round(absolute_error, 6),
                     "relative_error": round(relative_error, 6),
                 }
