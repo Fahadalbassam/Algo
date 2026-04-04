@@ -4,4 +4,9 @@ __pycache__/
 .env
 .vscode/
 .DS_Store
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+
 nse_options_2024-11-03_normalized.csv
