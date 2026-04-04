@@ -49,5 +49,5 @@ Frontend contract matches backend: same field names and endpoint semantics (via 
 
 ## Handoffs needed
 
-- To **Waleed**: screenshots or short clips of the three flows and compare output.
+- To **Alwaleed**: screenshots or short clips of the three flows and compare output.
 - To **Fahad**: any contract mismatch found during smoke tests (with request/response samples).

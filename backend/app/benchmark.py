@@ -76,9 +76,11 @@ def run_benchmark_cases() -> list[dict]:
     for base_case in BASE_CASES:
         for N in N_VALUES:
             case = {**base_case, "N": N}
+            seed = 42
 
             print(f"Running {case['label']} with N={case['N']}")
 
+            bs_start = perf_counter()
             bs_price = black_scholes_call(
                 case["S"],
                 case["K"],
@@ -86,6 +88,7 @@ def run_benchmark_cases() -> list[dict]:
                 case["r"],
                 case["sigma"],
             )
+            bs_runtime_ms = (perf_counter() - bs_start) * 1000
 
             mc_start = perf_counter()
             mc_price = monte_carlo_call(
@@ -95,7 +98,7 @@ def run_benchmark_cases() -> list[dict]:
                 case["r"],
                 case["sigma"],
                 case["N"],
-                seed=42,
+                seed=seed,
             )
             mc_runtime_ms = (perf_counter() - mc_start) * 1000
 
@@ -111,7 +114,9 @@ def run_benchmark_cases() -> list[dict]:
                     "r": case["r"],
                     "sigma": case["sigma"],
                     "N": case["N"],
+                    "seed": seed,
                     "black_scholes_price": bs_price,
+                    "black_scholes_runtime_ms": round(bs_runtime_ms, 4),
                     "monte_carlo_price": mc_price,
                     "monte_carlo_runtime_ms": round(mc_runtime_ms, 4),
                     "absolute_error": round(absolute_error, 6),

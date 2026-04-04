@@ -48,7 +48,7 @@ Current stable integration baseline: **`fhd`**. Treat this branch as the shared 
 | **Obai** | Benchmark / report improvements **without** changing `monte_carlo_call` return type (`float`) |
 | **Rayan** | Frontend smoke tests; black-scholes, monte-carlo, compare flows vs live API |
 | **Nawaf** | Dataset mapping and enrichment for `S`, `r`, `sigma`; call subset vs put handling |
-| **Waleed** | Report evidence, screenshots, QA, presentation-ready outputs |
+| **Alwaleed** | Report evidence, screenshots, QA, presentation-ready outputs |
 
 ## Merge rules
 
