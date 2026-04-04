@@ -91,6 +91,8 @@ export function validateForm(values: FormValues): ValidationResult {
     };
   }
 
+  const optionalSeed: number | undefined = seed == null ? undefined : seed;
+
   return {
     errors: {},
     payload: {
@@ -100,7 +102,7 @@ export function validateForm(values: FormValues): ValidationResult {
       r: r as number,
       sigma: sigma as number,
       N: N as number,
-      ...(seed !== undefined ? { seed } : {}),
+      ...(optionalSeed !== undefined ? { seed: optionalSeed } : {}),
     },
   };
 }
