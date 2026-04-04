@@ -52,4 +52,4 @@ The large raw/normalized CSV stays **local** and **gitignored**. Share small exc
 ## Handoffs needed
 
 - To **Fahad** / team: written mapping spec + sample rows before any automated ingestion.
-- To **Waleed**: table of example cases and data lineage notes for the report.
+- To **Alwaleed**: table of example cases and data lineage notes for the report.

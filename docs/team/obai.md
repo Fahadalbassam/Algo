@@ -47,5 +47,5 @@ Benchmark lane runs; core MC path aligned with team contract.
 
 ## Handoffs needed
 
-- To **Waleed**: stable benchmark commands and example rows or CSV paths for the report.
+- To **Alwaleed**: stable benchmark commands and example rows or CSV paths for the report.
 - To **Fahad**: heads-up if benchmark artifacts or locations change in a way that affects CI or docs.
