@@ -1,6 +1,6 @@
 # Option Pricing Backend
 
-This backend provides option pricing APIs for European call options using Black-Scholes and Monte Carlo methods, plus a compare endpoint to check pricing differences.
+This backend exposes option pricing APIs for European call options using Black–Scholes and Monte Carlo, plus a compare endpoint. For project context, setup from the repo root, dataset notes, and roadmap, see the **[root README](../README.md)**.
 
 ## Setup
 

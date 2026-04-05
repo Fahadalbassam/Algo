@@ -16,7 +16,7 @@ Monte Carlo owner; benchmark owner.
 
 ## Current status
 
-Benchmark lane runs; core MC path aligned with team contract.
+Benchmark suite runs; core Monte Carlo path aligned with the team contract.
 
 ## Done
 
